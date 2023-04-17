@@ -1,5 +1,6 @@
 // import Image from "next/image";
 
+import Image from "next/image";
 import { Links } from "../components/Links";
 
 import styles from "../components/RootLayout/index.module.scss";
@@ -11,12 +12,15 @@ export default function Home() {
   return (
     <>
       <div className={styles.center}>
-        <img
-          loading="lazy"
-          alt="logo"
-          src="/tb.png"
-          className="main-logo lg:h-[380px] lg:w-[500px] md:h-[300px] md:w-[380px] h-[240px] w-full"
-        />
+        <div className="lg:h-[380px] lg:w-[500px] md:h-[300px] md:w-[380px] h-[200px] w-[250px]">
+          <Image
+            loading="lazy"
+            alt="logo"
+            src="/tb.png"
+            className="main-logo"
+            fill
+          />
+        </div>
       </div>
       <Links />
     </>
