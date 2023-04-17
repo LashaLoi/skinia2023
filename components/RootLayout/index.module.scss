@@ -76,7 +76,7 @@
 }
 
 .main-logo {
-  margin: 2px;
+  // margin: 2px;
   filter: invert(1);
 }
 
@@ -151,6 +151,10 @@
 
 /* Mobile and Tablet */
 @media (max-width: 1023px) {
+  .main {
+    padding: 2rem;
+  }
+
   .content {
     padding: 4rem;
   }
