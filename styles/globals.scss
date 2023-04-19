@@ -110,6 +110,16 @@ a {
   text-decoration: none;
 }
 
+.main-logo {
+  filter: invert(9);
+}
+
+@media (prefers-color-scheme: dark) {
+  .main-logo {
+    filter: invert(0.2);
+  }
+}
+
 .blob {
   height: 300px;
   aspect-ratio: 1;

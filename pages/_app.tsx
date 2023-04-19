@@ -1,21 +1,20 @@
 import "../styles/globals.scss";
 import type { AppProps } from "next/app";
 
-import { BlobScript } from "../lib/scripts/blob";
-
 import { Header } from "../components/Header/index";
 import RootLayout from "../components/RootLayout";
+import { useBlob } from "../lib/hooks/useBlob";
 
 export default function App({ Component, pageProps }: AppProps) {
+  const ref = useBlob<HTMLDivElement>();
+
   return (
     <>
-      <div id="blob" className="blob" />
+      <div ref={ref} className="blob" />
       <RootLayout>
         <Header />
         <Component {...pageProps} />
       </RootLayout>
-
-      <BlobScript />
     </>
   );
 }
