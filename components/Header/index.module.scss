@@ -5,7 +5,7 @@
   font-size: 0.85rem;
   max-width: var(--max-width);
   width: 100%;
-  z-index: 2;
+  z-index: 102;
   font-family: var(--font-mono);
 
   a {
@@ -15,7 +15,7 @@
     gap: 0.5rem;
   }
 
-  p {
+  button {
     position: relative;
     margin: 0;
     padding: 1rem;
@@ -37,7 +37,7 @@
       padding: 1rem;
     }
 
-    & p {
+    & button {
       display: flex;
       justify-content: center;
       position: fixed;

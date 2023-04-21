@@ -134,6 +134,8 @@ a {
 
   animation: rotate 10s infinite;
   filter: blur(150px);
+
+  z-index: 1;
 }
 
 @keyframes rotate {
