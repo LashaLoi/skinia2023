@@ -7,7 +7,7 @@ export default function RegisterPage() {
         <div className={styles.center} />
       </div>
 
-      <div className="w-full relative lg:max-w-xl mb-[200px]">
+      <div className="w-full relative lg:max-w-xl mb-[200px] z-20">
         <h2 className="mb-4 text-xl font-bold text-gray-900 dark:text-white">
           Add a new product
         </h2>
