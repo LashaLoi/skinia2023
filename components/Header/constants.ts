@@ -2,6 +2,7 @@ export enum Path {
   HOME = "/",
   REGISTER = "/register",
   PROGRAM = "/program",
+  SPEAKERS = "/speakers",
 }
 
 export const defaultInfo = {
@@ -9,14 +10,14 @@ export const defaultInfo = {
   text: "Перейти к регистрации",
 };
 
+export const home = {
+  link: Path.HOME,
+  text: "На главную",
+};
+
 export const routeInfo = {
   [Path.HOME]: defaultInfo,
-  [Path.REGISTER]: {
-    link: Path.HOME,
-    text: "На главную",
-  },
-  [Path.PROGRAM]: {
-    link: Path.HOME,
-    text: "На главную",
-  },
+  [Path.REGISTER]: home,
+  [Path.PROGRAM]: home,
+  [Path.SPEAKERS]: home,
 };

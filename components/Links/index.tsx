@@ -30,7 +30,7 @@ export function Links() {
         </motion.div>
       </Link>
 
-      <Link href={Path.PROGRAM} className={styles.card}>
+      <Link href={Path.SPEAKERS} className={styles.card}>
         <motion.div
           initial={{
             opacity: 0,
