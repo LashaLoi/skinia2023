@@ -167,3 +167,33 @@ a {
     display: none;
   }
 }
+
+.progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  transform-origin: 0%;
+  z-index: 500;
+
+  background: rgba(1, 65, 255, 0.3);
+}
+
+.title {
+  color: rgba(1, 65, 255, 0.3);
+}
+
+.btn {
+  position: relative;
+  margin: 0;
+  padding: 1rem;
+  background-color: rgba(var(--callout-rgb), 0.5);
+  border: 1px solid rgba(var(--callout-border-rgb), 0.3);
+  border-radius: var(--border-radius);
+
+  cursor: pointer;
+  font-weight: 500;
+  font-size: 1rem;
+  font-family: var(--font-mono);
+}

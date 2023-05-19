@@ -20,7 +20,7 @@ export default function Home() {
           transition={{
             duration: 0.6,
           }}
-          className="lg:h-[380px] lg:w-[500px] md:h-[300px] md:w-[380px] h-[200px] w-[250px] "
+          className="lg:h-[380px] lg:w-[500px] md:h-[300px] md:w-[380px] h-[240px] w-[300px]"
         >
           <Image alt="logo" src="/tb.png" className="main-logo " fill />
         </motion.div>
