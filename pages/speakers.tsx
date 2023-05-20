@@ -1,12 +1,9 @@
 import { motion } from "framer-motion";
-import styles from "../components/RootLayout/index.module.scss";
+import { PageWrapper } from "../components/PageWrapper";
 
 export default function SpeakersPage() {
   return (
-    <>
-      <div className="mt-[100px]">
-        <div className={styles.center} />
-      </div>
+    <PageWrapper>
       <motion.h2
         initial={{
           opacity: 0,
@@ -20,7 +17,7 @@ export default function SpeakersPage() {
         transition={{
           duration: 0.6,
         }}
-        className="text-4xl font-extrabold leading-tight tracking-tight text-gray-900 dark:text-white"
+        className="text-4xl font-extrabold leading-tight tracking-tight text-gray-900 dark:text-white mono"
       >
         Наши спикеры
       </motion.h2>
@@ -70,6 +67,6 @@ export default function SpeakersPage() {
           </motion.div>
         ))}
       </div>
-    </>
+    </PageWrapper>
   );
 }

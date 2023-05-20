@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { font } from "../../lib/fonts";
 
-import { Tools } from "../Tools";
+import { MediaLinks } from "../MediaLinks";
 
 import { useRouteInfo } from "./hooks";
 
@@ -22,13 +22,13 @@ export function Header() {
         }}
         animate={{
           opacity: 1,
+          border: "rgba(1, 65, 255, 0.3)",
         }}
         className={font.className}
         onClick={handleClick}
       >
         {text} -&gt;
       </motion.button>
-
       <motion.div
         initial={{
           opacity: 0,
@@ -37,7 +37,7 @@ export function Header() {
           opacity: 1,
         }}
       >
-        <Tools />
+        <MediaLinks />
       </motion.div>
     </div>
   );

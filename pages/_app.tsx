@@ -1,6 +1,5 @@
 import "../styles/globals.scss";
 import type { AppProps } from "next/app";
-
 import { Header } from "../components/Header/index";
 import RootLayout from "../components/RootLayout";
 import { useBlob } from "../lib/hooks/useBlob";

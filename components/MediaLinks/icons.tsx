@@ -1,25 +1,7 @@
-import styles from "./index.module.scss";
-
 import { motion } from "framer-motion";
 
-const arrowDown = (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    className="h-5 w-5"
-    viewBox="0 0 20 20"
-    fill="currentColor"
-  >
-    <path
-      fillRule="evenodd"
-      d="M16.707 10.293a1 1 0 010 1.414l-6 6a1 1 0 01-1.414 0l-6-6a1 1 0 111.414-1.414L9 14.586V3a1 1 0 012 0v11.586l4.293-4.293a1 1 0 011.414 0z"
-      clipRule="evenodd"
-    />
-  </svg>
-);
-
-const instagramIcon = (
+export const instagramIcon = (
   <motion.svg
-    fill="#64748b"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24"
     width="24px"
@@ -47,9 +29,8 @@ const instagramIcon = (
   </motion.svg>
 );
 
-const vkIcon = (
+export const vkIcon = (
   <motion.svg
-    fill="#64748b"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24"
     width="24px"
@@ -77,9 +58,8 @@ const vkIcon = (
   </motion.svg>
 );
 
-const facebookIcon = (
+export const facebookIcon = (
   <motion.svg
-    fill="#64748b"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24"
     width="24px"
@@ -107,9 +87,8 @@ const facebookIcon = (
   </motion.svg>
 );
 
-const youtubeIcon = (
+export const youtubeIcon = (
   <motion.svg
-    fill="#64748b"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24"
     width="24px"
@@ -137,9 +116,9 @@ const youtubeIcon = (
   </motion.svg>
 );
 
-const telegramIcon = (
+export const telegramIcon = (
   <motion.svg
-    fill="#64748b"
+    fill="inherit"
     xmlns="http://www.w3.org/2000/svg"
     viewBox="0 0 24 24"
     width="24px"
@@ -168,151 +147,3 @@ const telegramIcon = (
     />
   </motion.svg>
 );
-
-const arrow = (
-  <motion.svg
-    xmlns="http://www.w3.org/2000/svg"
-    className="h-6 w-6"
-    fill="none"
-    viewBox="0 0 24 24"
-    stroke="currentColor"
-    strokeWidth={2}
-    whileHover={{
-      scale: 1.2,
-    }}
-    whileTap={{ scale: 0.9 }}
-  >
-    <motion.path
-      initial={{
-        opacity: 0,
-        pathLength: 0,
-      }}
-      transition={{
-        duration: 1,
-        ease: "easeInOut",
-      }}
-      animate={{
-        opacity: 1,
-        pathLength: 1,
-      }}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      d="M17 8l4 4m0 0l-4 4m4-4H3"
-    />
-  </motion.svg>
-);
-
-const menu = (
-  <motion.svg
-    xmlns="http://www.w3.org/2000/svg"
-    className="h-6 w-6"
-    fill="none"
-    viewBox="0 0 24 24"
-    stroke="currentColor"
-    strokeWidth={2}
-    whileHover={{
-      scale: 1.2,
-    }}
-    whileTap={{ scale: 0.9 }}
-  >
-    <motion.path
-      initial={{
-        opacity: 0,
-        pathLength: 0,
-      }}
-      transition={{
-        duration: 1,
-        ease: "easeInOut",
-      }}
-      animate={{
-        opacity: 1,
-        pathLength: 1,
-      }}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      d="M4 6h16M4 12h16M4 18h16"
-    />
-  </motion.svg>
-);
-
-const closeIcon = (
-  <motion.svg
-    xmlns="http://www.w3.org/2000/svg"
-    className="h-6 w-6"
-    fill="none"
-    viewBox="0 0 24 24"
-    stroke="currentColor"
-    strokeWidth={2}
-    whileHover={{
-      scale: 1.2,
-    }}
-    whileTap={{ scale: 0.9 }}
-  >
-    <motion.path
-      initial={{
-        opacity: 0,
-        pathLength: 0,
-      }}
-      transition={{
-        duration: 1,
-        ease: "easeInOut",
-      }}
-      animate={{
-        opacity: 1,
-        pathLength: 1,
-      }}
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      d="M6 18L18 6M6 6l12 12"
-    />
-  </motion.svg>
-);
-
-export function Tools() {
-  return (
-    <div className={styles.tools}>
-      <div className="mb-2 flex justify-center items-center h-[20px]">
-        <a
-          href="https://www.instagram.com/ngbelarus/"
-          target="_blank"
-          rel="noreferrer"
-          className="sm:mr-4 mr-0 cursor-pointer"
-        >
-          {instagramIcon}
-        </a>
-        <a
-          href="https://www.facebook.com/NGBelarus"
-          target="_blank"
-          rel="noreferrer"
-          className="sm:mr-4 mr-0 cursor-pointer"
-        >
-          {facebookIcon}
-        </a>
-        <a
-          href="https://www.youtube.com/user/NewGenerationBY"
-          target="_blank"
-          rel="noreferrer"
-          className="sm:mr-4 mr-0 cursor-pointer"
-        >
-          {youtubeIcon}
-        </a>
-        <a
-          href="https://vk.com/skinia2022"
-          target="_blank"
-          rel="noreferrer"
-          className="sm:mr-4 mr-0 cursor-pointer"
-        >
-          {vkIcon}
-        </a>
-        <a
-          href="https://t.me/skiniaby"
-          target="_blank"
-          rel="noreferrer"
-          className="cursor-pointer"
-        >
-          {telegramIcon}
-        </a>
-      </div>
-    </div>
-  );
-}

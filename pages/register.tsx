@@ -1,49 +1,64 @@
-import styles from "../components/RootLayout/index.module.scss";
+import router from "next/router";
+import { useForm, SubmitHandler } from "react-hook-form";
+import { useState } from "react";
+import { useLocalStorageStore } from "../lib/localStorageStore";
+import { PageWrapper } from "../components/PageWrapper";
+
+type Inputs = {
+  fullName: string;
+  age: number;
+};
 
 export default function RegisterPage() {
-  return (
-    <>
-      <div className="mt-[100px]">
-        <div className={styles.center} />
-      </div>
+  const [loading, setLoading] = useState(false);
+  const { register, handleSubmit } = useForm<Inputs>();
 
+  const [_, setValue] = useLocalStorageStore();
+
+  const onSubmit: SubmitHandler<Inputs> = async (data) => {
+    setLoading(true);
+
+    await new Promise((res) => {
+      setTimeout(() => res({}), 2000);
+    });
+
+    setValue(data.fullName);
+
+    router.push("/registered");
+  };
+
+  return (
+    <PageWrapper>
       <div className="w-full relative lg:max-w-xl mb-[100px] z-20">
-        <h2 className="mb-4 text-xl font-bold text-gray-900 dark:text-white">
-          Add a new product
+        <h2 className="mb-4 text-xl font-bold text-gray-900 dark:text-white mono">
+          Регистрация
         </h2>
-        <form action="#">
+        <form onSubmit={handleSubmit(onSubmit)}>
           <div className="grid gap-4 sm:grid-cols-2 sm:gap-6">
             <div className="sm:col-span-2">
-              <label
-                htmlFor="name"
-                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-              >
-                Product Name
+              <label className="block text-sm font-medium text-gray-900 dark:text-white cursor-pointer">
+                ФИО
+                <input
+                  {...register("fullName", {
+                    required: true,
+                  })}
+                  className="mt-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                  placeholder="Введите ваше ФИО"
+                />
               </label>
-              <input
-                type="text"
-                name="name"
-                id="name"
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                placeholder="Type product name"
-                required
-              />
             </div>
             <div className="w-full">
               <label
                 htmlFor="brand"
-                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                className="block text-sm font-medium text-gray-900 dark:text-white"
               >
                 Brand
+                <input
+                  {...register("age", { required: true })}
+                  className="mt-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
+                  placeholder="Сколько вам лет"
+                />
               </label>
-              <input
-                type="text"
-                name="brand"
-                id="brand"
-                className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
-                placeholder="Product brand"
-                required
-              />
             </div>
             <div className="w-full">
               <label
@@ -70,9 +85,10 @@ export default function RegisterPage() {
               </label>
               <select
                 id="category"
+                defaultValue="All"
                 className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-primary-500 dark:focus:border-primary-500"
               >
-                <option selected>Select category</option>
+                <option value="All">Select category</option>
                 <option value="TV">TV/Monitors</option>
                 <option value="PC">PC</option>
                 <option value="GA">Gaming/Console</option>
@@ -111,9 +127,11 @@ export default function RegisterPage() {
             </div>
           </div>
           <div className="h-4" />
-          <button className="btn ">Отправить</button>
+          <button className="btn">
+            {loading ? "Отправка..." : "Отправить"}
+          </button>
         </form>
       </div>
-    </>
+    </PageWrapper>
   );
 }

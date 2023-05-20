@@ -1,18 +1,12 @@
-import { useState } from "react";
-import styles from "../components/RootLayout/index.module.scss";
-
 import { motion } from "framer-motion";
+import { PageWrapper } from "../components/PageWrapper";
+import { useProgram } from "../lib/hooks/useProgram";
 
 export default function ProgramPage() {
-  const [first, setFirst] = useState(false);
-  const [second, setSecond] = useState(false);
+  const program = useProgram();
 
   return (
-    <>
-      <div className="mt-[100px]">
-        <div className={styles.center} />
-      </div>
-
+    <PageWrapper>
       <div className="w-full relative lg:max-w-xl mb-[200px] antialiased z-50">
         <div className="max-w-screen-xl py-8 lg:px-6 sm:py-16 lg:py-24">
           <div className="max-w-3xl mx-auto text-center">
@@ -28,297 +22,68 @@ export default function ProgramPage() {
               transition={{
                 duration: 0.6,
               }}
-              className="text-4xl font-extrabold leading-tight tracking-tight text-gray-900 dark:text-white"
+              className="text-4xl font-extrabold leading-tight tracking-tight text-gray-900 dark:text-white mono"
             >
               Расписание
             </motion.h2>
-
-            <motion.div
-              className="mt-10"
-              initial={{
-                opacity: 0,
-                scale: 0.9,
-              }}
-              animate={{
-                opacity: 1,
-                scale: 1,
-              }}
-              transition={{
-                duration: 0.6,
-                delay: 0.2,
-              }}
-            >
-              <motion.button
-                onClick={() => setFirst((first) => !first)}
-                className="btn sm:w-1/2 w-full"
-              >
-                ДЕНЬ - 1
-              </motion.button>
-            </motion.div>
           </div>
 
-          {first ? (
-            <>
-              <div className="flow-root max-w-3xl mx-auto mt-8 sm:mt-12 lg:mt-16">
-                <div className="-my-4 divide-y divide-gray-200 dark:divide-gray-700">
-                  <div className="flex flex-col gap-2 py-4 sm:gap-6 sm:flex-row sm:items-center">
-                    <p className="w-32 text-lg font-normal text-gray-500 sm:text-right dark:text-gray-400 shrink-0">
-                      08:00 - 09:00
-                    </p>
-                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-                      <a href="#" className="hover:underline">
-                        Opening remarks
-                      </a>
-                    </h3>
-                  </div>
+          {program.map((day, i) => (
+            <div key={i}>
+              <motion.div
+                initial={{
+                  opacity: 0,
+                  scale: 0.9,
+                }}
+                animate={{
+                  opacity: 1,
+                  scale: 1,
+                }}
+                transition={{
+                  duration: 0.6,
+                  delay: 0.2,
+                }}
+                className="max-w-3xl mx-auto text-center mt-10"
+              >
+                <motion.button
+                  whileHover={{
+                    scale: 1.1,
+                  }}
+                  whileTap={{ scale: 0.9 }}
+                  onClick={() => day.set((state) => !state)}
+                  className="btn sm:w-1/2 w-full"
+                >
+                  {day.title}
+                </motion.button>
+              </motion.div>
 
-                  <div className="flex flex-col gap-2 py-4 sm:gap-6 sm:flex-row sm:items-center">
-                    <p className="w-32 text-lg font-normal text-gray-500 sm:text-right dark:text-gray-400 shrink-0">
-                      09:00 - 10:00
-                    </p>
-                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-                      <a href="#" className="hover:underline">
-                        Bergside LLC: Controlling the video traffic flows
-                      </a>
-                    </h3>
+              {day.get ? (
+                <>
+                  <div className="flow-root max-w-3xl mx-auto mt-8 sm:mt-12 lg:mt-16">
+                    <div className="-my-4 divide-y divide-gray-200 dark:divide-gray-700">
+                      {day.event.map((event, i) => (
+                        <div
+                          key={event.title + i}
+                          className="flex flex-col gap-2 py-4 sm:gap-6 sm:flex-row sm:items-center"
+                        >
+                          <p className="w-32 text-lg font-normal text-gray-500 sm:text-right dark:text-gray-400 shrink-0">
+                            {event.time}
+                          </p>
+                          <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
+                            <a href="#" className="hover:underline">
+                              {event.title}
+                            </a>
+                          </h3>
+                        </div>
+                      ))}
+                    </div>
                   </div>
-
-                  <div className="flex flex-col gap-2 py-4 sm:gap-6 sm:flex-row sm:items-center">
-                    <p className="w-32 text-lg font-normal text-gray-500 sm:text-right dark:text-gray-400 shrink-0">
-                      10:00 - 11:00
-                    </p>
-                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-                      <a href="#" className="hover:underline">
-                        Flowbite - An Open Framework for Forensic Watermarking
-                      </a>
-                    </h3>
-                  </div>
-
-                  <div className="flex flex-col gap-2 py-4 sm:gap-6 sm:flex-row sm:items-center">
-                    <p className="w-32 text-lg font-normal text-gray-500 sm:text-right dark:text-gray-400 shrink-0">
-                      11:00 - 12:00
-                    </p>
-                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-                      <a href="#" className="hover:underline">
-                        Coffee Break
-                      </a>
-                    </h3>
-                  </div>
-
-                  <div className="flex flex-col gap-2 py-4 sm:gap-6 sm:flex-row sm:items-center">
-                    <p className="w-32 text-lg font-normal text-gray-500 sm:text-right dark:text-gray-400 shrink-0">
-                      12:00 - 13:00
-                    </p>
-                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-                      <a href="#" className="hover:underline">
-                        Scaling your brand from €0 to multimillion euros
-                      </a>
-                    </h3>
-                  </div>
-
-                  <div className="flex flex-col gap-2 py-4 sm:gap-6 sm:flex-row sm:items-center">
-                    <p className="w-32 text-lg font-normal text-gray-500 sm:text-right dark:text-gray-400 shrink-0">
-                      13:00 - 14:00
-                    </p>
-                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-                      <a href="#" className="hover:underline">
-                        Updates from the Open Source Multimedia community
-                      </a>
-                    </h3>
-                  </div>
-
-                  <div className="flex flex-col gap-2 py-4 sm:gap-6 sm:flex-row sm:items-center">
-                    <p className="w-32 text-lg font-normal text-gray-500 sm:text-right dark:text-gray-400 shrink-0">
-                      14:00 - 15:00
-                    </p>
-                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-                      <a href="#" className="hover:underline">
-                        Exploring the balance between customer acquisition and
-                        retention
-                      </a>
-                    </h3>
-                  </div>
-
-                  <div className="flex flex-col gap-2 py-4 sm:gap-6 sm:flex-row sm:items-center">
-                    <p className="w-32 text-lg font-normal text-gray-500 sm:text-right dark:text-gray-400 shrink-0">
-                      15:00 - 16:00
-                    </p>
-                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-                      <a href="#" className="hover:underline">
-                        Flowbite - An Open Framework for Forensic Watermarking
-                      </a>
-                    </h3>
-                  </div>
-
-                  <div className="flex flex-col gap-2 py-4 sm:gap-6 sm:flex-row sm:items-center">
-                    <p className="w-32 text-lg font-normal text-gray-500 sm:text-right dark:text-gray-400 shrink-0">
-                      16:00 - 14:00
-                    </p>
-                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-                      <a href="#" className="hover:underline">
-                        Scaling your brand from €0 to multimillion euros
-                      </a>
-                    </h3>
-                  </div>
-
-                  <div className="flex flex-col gap-2 py-4 sm:gap-6 sm:flex-row sm:items-center">
-                    <p className="w-32 text-lg font-normal text-gray-500 sm:text-right dark:text-gray-400 shrink-0">
-                      17:00 - 14:00
-                    </p>
-                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-                      <a href="#" className="hover:underline">
-                        Drinks & networking
-                      </a>
-                    </h3>
-                  </div>
-                </div>
-              </div>
-            </>
-          ) : null}
-
-          <motion.div
-            initial={{
-              opacity: 0,
-              scale: 0.9,
-            }}
-            animate={{
-              opacity: 1,
-              scale: 1,
-            }}
-            transition={{
-              duration: 0.6,
-              delay: 0.4,
-            }}
-            className="max-w-3xl mx-auto text-center mt-10"
-          >
-            <motion.button
-              onClick={() => setSecond((second) => !second)}
-              className="btn sm:w-1/2 w-full"
-            >
-              ДЕНЬ - 2
-            </motion.button>
-          </motion.div>
-
-          {second ? (
-            <>
-              <div className="flow-root max-w-3xl mx-auto mt-8 sm:mt-12 lg:mt-16">
-                <div className="-my-4 divide-y divide-gray-200 dark:divide-gray-700">
-                  <div className="flex flex-col gap-2 py-4 sm:gap-6 sm:flex-row sm:items-center">
-                    <p className="w-32 text-lg font-normal text-gray-500 sm:text-right dark:text-gray-400 shrink-0">
-                      08:00 - 09:00
-                    </p>
-                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-                      <a href="#" className="hover:underline">
-                        Opening remarks
-                      </a>
-                    </h3>
-                  </div>
-
-                  <div className="flex flex-col gap-2 py-4 sm:gap-6 sm:flex-row sm:items-center">
-                    <p className="w-32 text-lg font-normal text-gray-500 sm:text-right dark:text-gray-400 shrink-0">
-                      09:00 - 10:00
-                    </p>
-                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-                      <a href="#" className="hover:underline">
-                        Bergside LLC: Controlling the video traffic flows
-                      </a>
-                    </h3>
-                  </div>
-
-                  <div className="flex flex-col gap-2 py-4 sm:gap-6 sm:flex-row sm:items-center">
-                    <p className="w-32 text-lg font-normal text-gray-500 sm:text-right dark:text-gray-400 shrink-0">
-                      10:00 - 11:00
-                    </p>
-                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-                      <a href="#" className="hover:underline">
-                        Flowbite - An Open Framework for Forensic Watermarking
-                      </a>
-                    </h3>
-                  </div>
-
-                  <div className="flex flex-col gap-2 py-4 sm:gap-6 sm:flex-row sm:items-center">
-                    <p className="w-32 text-lg font-normal text-gray-500 sm:text-right dark:text-gray-400 shrink-0">
-                      11:00 - 12:00
-                    </p>
-                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-                      <a href="#" className="hover:underline">
-                        Coffee Break
-                      </a>
-                    </h3>
-                  </div>
-
-                  <div className="flex flex-col gap-2 py-4 sm:gap-6 sm:flex-row sm:items-center">
-                    <p className="w-32 text-lg font-normal text-gray-500 sm:text-right dark:text-gray-400 shrink-0">
-                      12:00 - 13:00
-                    </p>
-                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-                      <a href="#" className="hover:underline">
-                        Scaling your brand from €0 to multimillion euros
-                      </a>
-                    </h3>
-                  </div>
-
-                  <div className="flex flex-col gap-2 py-4 sm:gap-6 sm:flex-row sm:items-center">
-                    <p className="w-32 text-lg font-normal text-gray-500 sm:text-right dark:text-gray-400 shrink-0">
-                      13:00 - 14:00
-                    </p>
-                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-                      <a href="#" className="hover:underline">
-                        Updates from the Open Source Multimedia community
-                      </a>
-                    </h3>
-                  </div>
-
-                  <div className="flex flex-col gap-2 py-4 sm:gap-6 sm:flex-row sm:items-center">
-                    <p className="w-32 text-lg font-normal text-gray-500 sm:text-right dark:text-gray-400 shrink-0">
-                      14:00 - 15:00
-                    </p>
-                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-                      <a href="#" className="hover:underline">
-                        Exploring the balance between customer acquisition and
-                        retention
-                      </a>
-                    </h3>
-                  </div>
-
-                  <div className="flex flex-col gap-2 py-4 sm:gap-6 sm:flex-row sm:items-center">
-                    <p className="w-32 text-lg font-normal text-gray-500 sm:text-right dark:text-gray-400 shrink-0">
-                      15:00 - 16:00
-                    </p>
-                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-                      <a href="#" className="hover:underline">
-                        Flowbite - An Open Framework for Forensic Watermarking
-                      </a>
-                    </h3>
-                  </div>
-
-                  <div className="flex flex-col gap-2 py-4 sm:gap-6 sm:flex-row sm:items-center">
-                    <p className="w-32 text-lg font-normal text-gray-500 sm:text-right dark:text-gray-400 shrink-0">
-                      16:00 - 14:00
-                    </p>
-                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-                      <a href="#" className="hover:underline">
-                        Scaling your brand from €0 to multimillion euros
-                      </a>
-                    </h3>
-                  </div>
-
-                  <div className="flex flex-col gap-2 py-4 sm:gap-6 sm:flex-row sm:items-center">
-                    <p className="w-32 text-lg font-normal text-gray-500 sm:text-right dark:text-gray-400 shrink-0">
-                      17:00 - 14:00
-                    </p>
-                    <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-                      <a href="#" className="hover:underline">
-                        Drinks & networking
-                      </a>
-                    </h3>
-                  </div>
-                </div>
-              </div>
-            </>
-          ) : null}
+                </>
+              ) : null}
+            </div>
+          ))}
         </div>
       </div>
-    </>
+    </PageWrapper>
   );
 }

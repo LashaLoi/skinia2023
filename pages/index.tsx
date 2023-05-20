@@ -7,7 +7,7 @@ import styles from "../components/RootLayout/index.module.scss";
 export default function Home() {
   return (
     <>
-      <div className={`lg:mt-0 mt-[100px] ${styles.center}`}>
+      <div className={`lg:mt-0 mt-[100px] ${styles.center} z-50`}>
         <motion.div
           initial={{
             opacity: 0,
