@@ -1,6 +1,7 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { PageWrapper } from "../components/PageWrapper";
+import { icons } from "../components/MediaLinks";
 
 export default function ContactsPage() {
   return (
@@ -209,6 +210,19 @@ export default function ContactsPage() {
           </div>
         </div>
       </motion.section>
+      <div className="mb-2 flex justify-center items-center h-[30px] dark:fill-slate-300 fill-gray-500">
+        {icons.map(({ icon, href }, i) => (
+          <a
+            key={i}
+            href={href}
+            target="_blank"
+            rel="noreferrer"
+            className="cursor-pointer mx-2"
+          >
+            {icon}
+          </a>
+        ))}
+      </div>
 
       <div className="mb-[100px]"></div>
     </PageWrapper>
