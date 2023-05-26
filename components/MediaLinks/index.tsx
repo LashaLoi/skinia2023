@@ -33,7 +33,7 @@ const icons = [
 
 export const MediaLinks = () => (
   <div className={styles.tools}>
-    <div className="mb-2 flex justify-center items-center h-[20px] dark:fill-slate-300 fill-gray-500">
+    <div className="mb-2 flex justify-center items-center h-[30px] dark:fill-slate-300 fill-gray-500">
       {icons.map(({ icon, href }, i) => (
         <a
           key={i}
