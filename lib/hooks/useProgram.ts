@@ -3,6 +3,7 @@ import { useState } from "react";
 export const useProgram = () => {
   const [first, setFirst] = useState(false);
   const [second, setSecond] = useState(false);
+  const [third, setThird] = useState(false);
 
   const program = [
     {
@@ -11,45 +12,38 @@ export const useProgram = () => {
       title: "День - 1",
       event: [
         {
-          time: "08:00 - 09:00",
-          title: "Opening remarks",
+          time: "11:00",
+          title: "регистрация",
         },
         {
-          time: "09:00 - 10:00",
-          title: "Bergside LLC: Controlling the video traffic flows",
-        },
-        {
-          time: "10:00 - 11:00",
-          title: "Flowbite - An Open Framework for Forensic Watermarking",
-        },
-        {
-          time: "11:00 - 12:00",
-          title: "Coffee Break",
-        },
-        {
-          time: "12:00 - 13:00",
-          title: "Scaling your brand from €0 to multimillion euros",
-        },
-        {
-          time: "13:00 - 14:00",
-          title: "Updates from the Open Source Multimedia community",
-        },
-        {
-          time: "14:00 - 15:00",
+          time: "12:00",
           title:
-            "Exploring the balance between customer acquisition and retention",
+            "торжественное открытие / приветствие и информация, молитва и поклонение",
         },
         {
-          time: "15:00 - 16:00",
-          title: "Flowbite - An Open Framework for Forensic Watermarking",
+          time: "13:00",
+          title: "обед",
         },
         {
-          time: "16:00 - 14:00",
-          title: "Scaling your brand from €0 to multimillion euros",
+          time: "14:00",
+          title:
+            "учение + обратная связь / Тема 1: Истоки происхождения служения поклонения. ",
         },
         {
-          time: "17:00 - 14:00",
-          title: "Drinks & networking",
+          time: "15:30",
+          title: "перерыв",
+        },
+        {
+          time: "15:45",
+          title: "учение + обратная связь / Тема 2: Истинные поклонники",
+        },
+        {
+          time: "17:00",
+          title: "ужин",
+        },
+        {
+          time: "18:30",
+          title: "музыкальный джем",
         },
       ],
     },
@@ -59,45 +53,57 @@ export const useProgram = () => {
       title: "День - 2",
       event: [
         {
-          time: "08:00 - 09:00",
-          title: "Opening remarks!",
+          time: "10:00",
+          title: "молитва и поклонение",
         },
         {
-          time: "09:00 - 10:00",
-          title: "Bergside LLC: Controlling the video traffic flows",
+          time: "11:00",
+          title: "перерыв",
         },
         {
-          time: "10:00 - 11:00",
-          title: "Flowbite - An Open Framework for Forensic Watermarking",
-        },
-        {
-          time: "11:00 - 12:00",
-          title: "Coffee Break",
-        },
-        {
-          time: "12:00 - 13:00",
-          title: "Scaling your brand from €0 to multimillion euros",
-        },
-        {
-          time: "13:00 - 14:00",
-          title: "Updates from the Open Source Multimedia community",
-        },
-        {
-          time: "14:00 - 15:00",
+          time: "11:30",
           title:
-            "Exploring the balance between customer acquisition and retention",
+            "учение + обратная связь / Тема 3: Вечность, Христоцентризм, теократический порядок.",
         },
         {
-          time: "15:00 - 16:00",
-          title: "Flowbite - An Open Framework for Forensic Watermarking",
+          time: "13:00",
+          title: "обед",
         },
         {
-          time: "16:00 - 14:00",
-          title: "Scaling your brand from €0 to multimillion euros",
+          time: "14:00",
+          title:
+            "учение + обратная связь / Тема 4: Административное устройство.",
         },
         {
-          time: "17:00 - 14:00",
-          title: "Drinks & networking",
+          time: "15:30",
+          title: "перерыв",
+        },
+        {
+          time: "15:45",
+          title: "творческая лаборатория ",
+        },
+        {
+          time: "17:30",
+          title: "ужин",
+        },
+        {
+          time: "18:30",
+          title: "музыкальный джем",
+        },
+      ],
+    },
+    {
+      get: third,
+      set: setThird,
+      title: "День - 3",
+      event: [
+        {
+          time: "10:00",
+          title: "МАРАФОН ХВАЛЫ",
+        },
+        {
+          time: "14:00",
+          title: "окончание школы, совместный обед",
         },
       ],
     },

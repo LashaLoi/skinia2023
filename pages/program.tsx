@@ -6,8 +6,8 @@ export default function ProgramPage() {
   const program = useProgram();
 
   return (
-    <PageWrapper>
-      <div className="w-full relative lg:max-w-xl mb-[200px] antialiased z-50">
+    <div className="flex flex-col items-center justify-between sm:py-[120px] pt-[120px] pb-0 bg-white p-4 z-10">
+      <div className="w-full relative lg:max-w-xl mb-[200px] antialiased z-10">
         <div className="max-w-screen-xl py-8 lg:px-6 sm:py-16 lg:py-24">
           <div className="max-w-3xl mx-auto text-center">
             <motion.h2
@@ -22,7 +22,7 @@ export default function ProgramPage() {
               transition={{
                 duration: 0.6,
               }}
-              className="text-4xl font-extrabold leading-tight tracking-tight text-gray-900 dark:text-white mono"
+              className="text-4xl font-extrabold leading-tight tracking-tight text-pink-400 dark:text-white mono"
             >
               Расписание
             </motion.h2>
@@ -70,9 +70,7 @@ export default function ProgramPage() {
                             {event.time}
                           </p>
                           <h3 className="text-lg font-semibold text-gray-900 dark:text-white">
-                            <a href="#" className="hover:underline">
-                              {event.title}
-                            </a>
+                            {event.title}
                           </h3>
                         </div>
                       ))}
@@ -84,6 +82,6 @@ export default function ProgramPage() {
           ))}
         </div>
       </div>
-    </PageWrapper>
+    </div>
   );
 }

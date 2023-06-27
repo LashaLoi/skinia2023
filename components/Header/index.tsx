@@ -1,44 +1,21 @@
-import { motion } from "framer-motion";
-import { font } from "../../lib/fonts";
+import { Button } from "../Button";
+import { Menu } from "../Menu";
+import Link from "next/link";
 
-import { MediaLinks } from "../MediaLinks";
+export const Header = () => (
+  <div className="w-full sm:px-24 sm:py-8 px-4 py-4 flex items-center justify-between fixed backdrop-blur-md bg-white/10 z-50">
+    <Link href="/" className="text-gray-400">
+      <span className="text-pink-400">NEW</span> GENERATION
+    </Link>
 
-import { useRouteInfo } from "./hooks";
-
-import styles from "./index.module.scss";
-import { useRouter } from "next/router";
-
-export function Header() {
-  const { link, text } = useRouteInfo();
-  const router = useRouter();
-
-  const handleClick = () => router.push(link);
-
-  return (
-    <div className={styles.description}>
-      <motion.button
-        initial={{
-          opacity: 0,
-        }}
-        animate={{
-          opacity: 1,
-          border: "rgba(1, 65, 255, 0.3)",
-        }}
-        className={font.className}
-        onClick={handleClick}
+    <div className="flex gap-8 items-center">
+      <Menu />
+      <Link
+        href="/register"
+        className="items-center hidden ml-auto space-x-8 lg:flex"
       >
-        {text} -&gt;
-      </motion.button>
-      <motion.div
-        initial={{
-          opacity: 0,
-        }}
-        animate={{
-          opacity: 1,
-        }}
-      >
-        <MediaLinks />
-      </motion.div>
+        <Button>Регистрация</Button>
+      </Link>
     </div>
-  );
-}
+  </div>
+);

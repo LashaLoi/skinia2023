@@ -1,11 +1,11 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { PageWrapper } from "../components/PageWrapper";
-import { icons } from "../components/MediaLinks";
+import { icons } from "../components/Menu";
 
 export default function ContactsPage() {
   return (
-    <PageWrapper>
+    <div className="flex flex-col items-center justify-between sm:py-[120px] pt-[120px] pb-0 bg-white p-4 z-10">
       <motion.h2
         initial={{
           opacity: 0,
@@ -18,7 +18,7 @@ export default function ContactsPage() {
         transition={{
           duration: 0.6,
         }}
-        className="text-4xl z-50 font-extrabold leading-tight tracking-tight text-gray-900 dark:text-white mono"
+        className="text-4xl font-extrabold leading-tight tracking-tight text-pink-400 dark:text-white mono z-10"
       >
         Информация
       </motion.h2>
@@ -35,7 +35,7 @@ export default function ContactsPage() {
             delay: 0.2,
             duration: 0.6,
           }}
-          className="text-3xl font-bold mb-12 title dark:text-blue-200"
+          className="text-3xl font-bold mb-12  text-purple-200"
         >
           О школе
         </motion.h2>
@@ -60,20 +60,18 @@ export default function ContactsPage() {
           </p>
           <p className="mb-10">
             Школа поклонения{" "}
-            <span className="font-extrabold title dark:text-blue-200">
-              СКИНИЯ
-            </span>{" "}
-            - это грамотное и разумное вложение своего времени и ресурсов,
-            потому что за эти дни каждый участник найдет для себя массу ответов
-            и получит стратегию и план для реформации своего служения, переведя
+            <span className="font-extrabold  text-purple-200">СКИНИЯ</span> -
+            это грамотное и разумное вложение своего времени и ресурсов, потому
+            что за эти дни каждый участник найдет для себя массу ответов и
+            получит стратегию и план для реформации своего служения, переведя
             его на качественно новый уровень для славы нашего{" "}
-            <span className="font-bold title dark:text-blue-200">
+            <span className="font-bold  text-purple-200">
               Господа Иисуса Христа.
             </span>
           </p>
 
           <p className="mb-2">Основные направления:</p>
-          <ul className="ml-4 text-gray-500 dark:text-gray-200">
+          <ul className="ml-4 text-gray-500 ">
             <li>- учение о поклонении </li>
             <li>- практическое применение знаний</li>
             <li>- пророческое поклонение</li>
@@ -225,6 +223,6 @@ export default function ContactsPage() {
       </div>
 
       <div className="mb-[100px]"></div>
-    </PageWrapper>
+    </div>
   );
 }

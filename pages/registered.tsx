@@ -3,11 +3,12 @@ import { Confetti } from "../components/Confetti";
 
 import { motion } from "framer-motion";
 import { PageWrapper } from "../components/PageWrapper";
+import { Button } from "../components/Button";
 
 export default function RegisteredPage() {
   return (
-    <PageWrapper>
-      <motion.h2
+    <div className="flex flex-col items-center justify-between sm:py-[120px] pt-[120px] pb-0 bg-white p-4 z-10">
+      <motion.div
         initial={{
           opacity: 0,
           scale: 0.9,
@@ -15,38 +16,40 @@ export default function RegisteredPage() {
         animate={{
           opacity: 1,
           scale: 1,
-          zIndex: 50,
         }}
         transition={{
           duration: 0.6,
         }}
-        className="text-4xl font-extrabold leading-tight tracking-tight text-gray-900 dark:text-white text-center"
+        className="text-4xl font-extrabold leading-tight tracking-tight text-purple-200"
       >
         Регистрация прошла успешно!
-      </motion.h2>
+      </motion.div>
 
-      <div className="mt-4 mb-4">
-        <a
-          href="#"
-          title=""
-          className="inline-flex items-center text-lg font-medium text-primary-600 hover:underline dark:text-primary-500"
-        >
-          Learn more about our agenda
-        </a>
+      <div className="max-w-[700px] py-8 text-lg">
+        <div className="mt-4 mb-4">
+          Команда школы не предоставляет бесплатный ночлег, если вам нужна
+          помощь в поиске жилья в аренду, свяжитесь с нами{" "}
+          <span className="text-pink-400"> +375 (29) 206-11-32 Анна</span>
+        </div>
+        <div>Приятный бонус для каждого участника - бесплатный обед!</div>
+        <div className="mt-4 mb-4">На месте будет работать платное кафе</div>
+        <div className="mt-4 mb-4">
+          В этом году мы запускаем марафон хвалы в последний день школы! участие
+          возможно только при условии, что вы были всю школу и всей командой.
+          благодарим за регистрацию и до встречи!
+        </div>
       </div>
 
-      <div className="z-50 gap-4 flex">
+      <div className="z-50 gap-8 flex items-center">
         <Link href="/">
-          <button className="btn">На главную</button>
+          <Button>На главную</Button>
         </Link>
 
-        <Link href="/register">
-          <button className="btn">Регистрация</button>
-        </Link>
+        <Link href="/register">Регистрация</Link>
       </div>
       <div className="h-[200px]"></div>
 
       <Confetti />
-    </PageWrapper>
+    </div>
   );
 }
