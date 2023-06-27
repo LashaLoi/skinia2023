@@ -32,12 +32,11 @@ export default function RegisterPage() {
     <div className="flex flex-col items-center justify-between py-[120px] bg-white">
       <div className="hero min-h-screen">
         <div className="hero-content text-neutral-content flex flex-col max-w-[700px] w-full">
-          <h1 className="text-black text-2xl font-bold">РЕГИСТРАЦИЯ</h1>
-          <div className="text-black w-full text-lg">
+          <h1 className="text-3xl font-bold text-pink-400 mb-4">РЕГИСТРАЦИЯ</h1>
+          <div className="text-gray-800 w-full text-lg">
             Заполните все вопросы чтобы стать участником{" "}
             <span className="text-pink-400">СКИНИИ 2023</span>
-          </div>
-          <div className="text-black w-full text-ьв">
+            <br />
             Стоимость школы - 100 BYN
           </div>
           <div className="text-gray-500 w-full text-md">27.07 - 29.07</div>

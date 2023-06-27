@@ -5,80 +5,88 @@ import { icons } from "../components/Menu";
 
 export default function ContactsPage() {
   return (
-    <div className="flex flex-col items-center justify-between sm:py-[120px] pt-[120px] pb-0 bg-white p-4 z-10">
-      <motion.h2
-        initial={{
-          opacity: 0,
-          scale: 0.9,
-        }}
-        animate={{
-          opacity: 1,
-          scale: 1,
-        }}
-        transition={{
-          duration: 0.6,
-        }}
-        className="text-4xl font-extrabold leading-tight tracking-tight text-pink-400 dark:text-white mono z-10"
-      >
-        Информация
-      </motion.h2>
+    <div className="flex flex-col items-center justify-between bg-white text-white  z-10">
+      <div className="lg:mt-0 z-20 flex flex-col items-center justify-between w-full">
+        <div className="hero min-h-screen bg-local md:bg-fixed bg-cover bg-[url(/112.jpg)] bg-center">
+          <div className="hero-overlay bg-opacity-10" />
+          <div className="hero-content text-center flex flex-col mt-[140px]">
+            <motion.h2
+              initial={{
+                opacity: 0,
+                scale: 0.9,
+              }}
+              animate={{
+                opacity: 1,
+                scale: 1,
+              }}
+              transition={{
+                duration: 0.6,
+              }}
+              className="text-4xl font-extrabold leading-tight tracking-tight text-pink-400 dark:text-white mono z-10"
+            >
+              Информация
+            </motion.h2>
 
-      <div className="container z-50 mt-20 mx-auto sm:text-2xl flex justify-center flex-col items-center">
-        <motion.h2
-          initial={{
-            opacity: 0,
-          }}
-          animate={{
-            opacity: 1,
-          }}
-          transition={{
-            delay: 0.2,
-            duration: 0.6,
-          }}
-          className="text-3xl font-bold mb-12  text-purple-200"
-        >
-          О школе
-        </motion.h2>
-        <motion.section
-          initial={{
-            opacity: 0,
-          }}
-          animate={{
-            opacity: 1,
-          }}
-          transition={{
-            delay: 0.4,
-            duration: 0.6,
-          }}
-          className="sm:mb-32 mb-10 text-gray-800 sm:w-2/3 w-full dark:text-white"
-        >
-          <p className="mb-8">
-            Служение прославления было и остается одним из важнейших
-            составляющих любой современной церкви. Это служение требует,
-            высокого мастерства, как в духовных, так и в профессиональных
-            навыках.
-          </p>
-          <p className="mb-10">
-            Школа поклонения{" "}
-            <span className="font-extrabold  text-purple-200">СКИНИЯ</span> -
-            это грамотное и разумное вложение своего времени и ресурсов, потому
-            что за эти дни каждый участник найдет для себя массу ответов и
-            получит стратегию и план для реформации своего служения, переведя
-            его на качественно новый уровень для славы нашего{" "}
-            <span className="font-bold  text-purple-200">
-              Господа Иисуса Христа.
-            </span>
-          </p>
+            <div className="container z-50 mt-10 mx-auto sm:text-2xl flex justify-center flex-col items-center ">
+              <motion.h2
+                initial={{
+                  opacity: 0,
+                }}
+                animate={{
+                  opacity: 1,
+                }}
+                transition={{
+                  delay: 0.2,
+                  duration: 0.6,
+                }}
+                className="text-3xl font-bold mb-12  text-pink-400"
+              >
+                О школе
+              </motion.h2>
+              <motion.section
+                initial={{
+                  opacity: 0,
+                }}
+                animate={{
+                  opacity: 1,
+                }}
+                transition={{
+                  delay: 0.4,
+                  duration: 0.6,
+                }}
+                className="sm:mb-32 mb-10 text-white sm:w-2/3 w-full dark:text-white"
+              >
+                <p className="mb-8">
+                  Служение прославления было и остается одним из важнейших
+                  составляющих любой современной церкви. Это служение требует,
+                  высокого мастерства, как в духовных, так и в профессиональных
+                  навыках.
+                </p>
+                <p className="mb-10">
+                  Школа поклонения{" "}
+                  <span className="font-extrabold  text-pink-400">СКИНИЯ</span>{" "}
+                  - это грамотное и разумное вложение своего времени и ресурсов,
+                  потому что за эти дни каждый участник найдет для себя массу
+                  ответов и получит стратегию и план для реформации своего
+                  служения, переведя его на качественно новый уровень для славы
+                  нашего{" "}
+                  <span className="font-bold  text-pink-400">
+                    Господа Иисуса Христа.
+                  </span>
+                </p>
 
-          <p className="mb-2">Основные направления:</p>
-          <ul className="ml-4 text-gray-500 ">
-            <li>- учение о поклонении </li>
-            <li>- практическое применение знаний</li>
-            <li>- пророческое поклонение</li>
-            <li>- знакомство, общение</li>
-            <li>- обмен опытом</li>
-          </ul>
-        </motion.section>
+                <p className="mb-2">Основные направления:</p>
+                <ul className="ml-4 text-gray-200 ">
+                  <li>- учение о поклонении </li>
+                  <li>- практическое применение знаний</li>
+                  <li>- пророческое поклонение</li>
+                  <li>- знакомство, общение</li>
+                  <li>- обмен опытом</li>
+                </ul>
+              </motion.section>
+            </div>
+          </div>
+        </div>
       </div>
 
       <motion.h2
@@ -93,7 +101,7 @@ export default function ContactsPage() {
         transition={{
           duration: 0.6,
         }}
-        className="mt-10 mb-10 text-2xl font-bold"
+        className="mt-10 mb-10 text-2xl font-bold text-pink-400 p-4"
       >
         Смоленская 28 - Барановичи - Беларусь
       </motion.h2>
@@ -117,7 +125,7 @@ export default function ContactsPage() {
           className="absolute inset-0 dark:invert"
           title="map"
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2393.9171224462784!2d26.026471415711562!3d53.12963329862263!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46d8cfe1a9c1c715%3A0x2844f8b8b22c6888!2sUlitsa%20Smolenskaya%2028%2C%20Baranavi%C4%8Dy%2C%20Belarus!5e0!3m2!1sen!2sus!4v1653587038964!5m2!1sen!2sus"
-        ></iframe>
+        />
       </motion.div>
 
       <motion.section
@@ -135,7 +143,7 @@ export default function ContactsPage() {
         className="text-gray-600 mb-10 mt-20 body-font flex justify-center flex-col w-full items-center "
       >
         <div className="w-full text-center dark:text-blue-200">
-          <h2 className="text-2xl font-bold">Контактные лица</h2>
+          <h2 className="text-2xl font-bold text-pink-400">Контактные лица</h2>
         </div>
 
         <div className="p-4 max-w-md sm:p-8">
