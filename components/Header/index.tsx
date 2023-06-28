@@ -15,9 +15,21 @@ export const Header = () => {
     <div className="w-full sm:px-24 sm:py-6 px-4 py-4 flex items-center justify-between fixed backdrop-blur-md bg-white/10 z-50">
       <Link
         href="/"
-        className={paths[pathname] ? "text-white" : "text-gray-400"}
+        className={
+          paths[pathname]
+            ? "text-white items-center flex"
+            : "text-gray-400 items-center flex"
+        }
       >
-        <span className="text-pink-400">NEW</span> GENERATION
+        <span className="text-pink-400 mr-1">NEW</span> GENERATION{" "}
+        <span
+          className={
+            paths[pathname]
+              ? "w-[1px] h-[14px] bg-white inline-block mx-2"
+              : "w-[1px] h-[14px] bg-gray-400 inline-block mx-2"
+          }
+        />{" "}
+        BELARUS
       </Link>
 
       <div className="flex gap-8 items-center">

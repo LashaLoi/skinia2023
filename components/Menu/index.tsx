@@ -25,11 +25,11 @@ export const icons = [
   },
   {
     icon: vkIcon,
-    href: "https://vk.com/skinia2022",
+    href: "https://vk.com/skinia2023",
   },
   {
     icon: telegramIcon,
-    href: "https://t.me/skiniaby",
+    href: "https://t.me/+ckIe79U-NIZkMDli",
   },
 ];
 

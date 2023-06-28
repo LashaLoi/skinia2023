@@ -153,7 +153,7 @@ export default function ContactsPage() {
               className="divide-y divide-gray-200 min-w-[400px] sm:p-0 p-12"
             >
               <li className="py-3 sm:py-4 ">
-                <div className="flex items-center space-x-4">
+                <div className="flex sm:flex-row flex-col gap-2 items-center space-x-4">
                   <div className="flex-shrink-0">
                     <Image
                       className="rounded-full"
@@ -183,7 +183,7 @@ export default function ContactsPage() {
                 </div>
               </li>
               <li className="py-3 sm:py-4 ">
-                <div className="flex items-center space-x-4">
+                <div className="flex sm:flex-row flex-col gap-2 items-center space-x-4">
                   <div className="flex-shrink-0">
                     <Image
                       className="rounded-full"

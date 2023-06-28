@@ -45,9 +45,7 @@ export function Links() {
           <h2 className={font.className}>
             Спикеры <span>-&gt;</span>
           </h2>
-          <p className={font.className}>
-            Наши специльные гости, а так же хорошо известные спикеры
-          </p>
+          <p className={font.className}>Наши учителя и специальные гости</p>
         </motion.div>
       </Link>
 
