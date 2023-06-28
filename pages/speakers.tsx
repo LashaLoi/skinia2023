@@ -59,7 +59,7 @@ export default function SpeakersPage() {
         transition={{
           duration: 0.6,
         }}
-        className="text-4xl font-extrabold leading-tight tracking-tight text-pink-400 dark:text-white mono mb-12"
+        className="text-4xl font-extrabold leading-tight tracking-tight text-pink-400  mono mb-12"
       >
         Наши спикеры
       </motion.h2>
@@ -80,7 +80,7 @@ export default function SpeakersPage() {
               delay: i / 1000,
             }}
             key={i}
-            className="max-w-sm bg-white/80 rounded-lg shadow dark:bg-gray-800/75 dark:border-gray-700"
+            className="max-w-sm bg-white/80 rounded-lg shadow "
           >
             <img
               className="rounded-t-lg object-cover object-top w-full h-[300px]"
@@ -89,11 +89,11 @@ export default function SpeakersPage() {
             />
             <div className="p-5">
               <a href="#">
-                <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+                <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 ">
                   {item.name}
                 </h5>
               </a>
-              <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
+              <p className="mb-3 font-normal text-gray-700 ">
                 {item.description}
               </p>
             </div>
