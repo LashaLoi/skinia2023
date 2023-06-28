@@ -37,7 +37,7 @@ export default function RegisteredPage() {
                 <span className="text-pink-400"> +375 (29) 206-11-32 Анна</span>
               </div>
               <div className="mt-4 mb-4">
-                Присоединяетесь к нашему Telegram-каналу, чтобы знать больше
+                Присоединяйся к нашему Telegram-каналу, чтобы знать больше
                 подробностей о школе и не пропустить важной информации! (
                 <span className="text-pink-400">
                   <a
@@ -57,7 +57,7 @@ export default function RegisteredPage() {
               <div className="mt-4 mb-4">
                 В этом году мы запускаем марафон хвалы в последний день школы!
                 Участие возможно только при условии, что вы были всю школу и
-                всей командой. благодарим за регистрацию и до встречи!
+                всей командой. Благодарим за регистрацию и до встречи!
               </div>
             </div>
             <div className="z-50 gap-8 flex items-center">
