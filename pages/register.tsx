@@ -149,14 +149,24 @@ export default function RegisterPage() {
               </div>
 
               <div className="sm:col-span-2">
-                <label className="block text-sm font-medium text-gray-900 ">
-                  Количество дней
-                  <input
+                <label className="block text-md font-medium text-gray-900 ">
+                  В какие дни планируешь быть на скинии?
+                  <div className="text-sm mt-2 text-gray-600">
+                    <span className="text-red-500">*</span> В марафоне хвалы
+                    могут учавствовать только те, кто проходил обучение в 1 и 2
+                    день школы
+                  </div>
+                  <select
                     {...register("days")}
-                    type="number"
-                    className="mt-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-600 focus:border-primary-600 block w-full p-2.5 "
-                    required
-                  />
+                    defaultValue="Все три дня"
+                    className="mt-2 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 "
+                  >
+                    <option value="Все три дня">Все три дня</option>
+                    <option value="Пятница и суббота">Пятница и суббота</option>
+                    <option value="Только на учении в четверг и пятницу">
+                      Только на учении в четверг и пятницу
+                    </option>
+                  </select>
                 </label>
               </div>
 
