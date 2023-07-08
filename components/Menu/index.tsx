@@ -54,6 +54,10 @@ const items = [
     text: "Галерея",
     path: "/gallery",
   },
+  {
+    text: "Спонсортво",
+    path: "/sponsors",
+  },
 ];
 
 export const Menu = () => (
