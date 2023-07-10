@@ -55,7 +55,7 @@ const items = [
     path: "/gallery",
   },
   {
-    text: "Спонсортво",
+    text: "Спонсорство",
     path: "/sponsors",
   },
 ];
