@@ -1,7 +1,161 @@
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { PageWrapper } from "../components/PageWrapper";
+
 import { icons } from "../components/Menu";
+
+import { useCallback, useReducer, useState } from "react";
+import { Button } from "../components/Button";
+import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
+
+type State = {
+  name: string;
+  email: string;
+  message: string;
+};
+
+type Action =
+  | {
+      name: string;
+    }
+  | { email: string }
+  | { message: string };
+
+const defaultValues = {
+  name: "",
+  email: "",
+  message: "",
+};
+
+export function ContactUsSection() {
+  const [state, setState] = useReducer(
+    (prevState: State, nextState: Action) => ({ ...prevState, ...nextState }),
+    defaultValues
+  );
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(false);
+  const [success, setSuccess] = useState(false);
+  const { name, email, message } = state;
+  const supabase = createClientComponentClient();
+
+  const handleChange = useCallback(
+    ({
+      target: { name, value },
+    }: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+      setState({ [name]: value } as Action);
+    },
+    []
+  );
+
+  const handleSubmit = useCallback(async () => {
+    setState(defaultValues);
+    setLoading(true);
+
+    const data = await supabase.from("s-feedback").insert([
+      {
+        full_name: state["name"] ?? "-",
+        comment: state["message"] ?? "-",
+        email: state["email"] ?? "-",
+      },
+    ]);
+
+    if (data.error) {
+      setError(true);
+    } else {
+      setSuccess(true);
+    }
+
+    setLoading(false);
+  }, [state, supabase]);
+
+  return (
+    <section className="text-gray-600 body-font relative">
+      <div className="container px-5 py-24 mx-auto">
+        <div className="flex flex-col text-center w-full mb-4">
+          <h1 className="text-3xl font-bold mb-4  text-pink-400">
+            Обратная связь
+          </h1>
+          <p className="lg:w-2/3 mx-auto leading-relaxed text-base">
+            Если у вас есть какие-нибудь вопросы по школе?
+          </p>
+        </div>
+        {error && (
+          <div className="alert alert-error mb-4">
+            <span>
+              Что-то пошло не так, перезагрузите страницу и попробуйте снова
+            </span>
+          </div>
+        )}
+        {success && (
+          <div className="alert alert-success mb-4">
+            <span>Ваш вопрос был отправлен!</span>
+          </div>
+        )}
+        <div className="lg:w-1/2 md:w-2/3 mx-auto">
+          <div className="flex flex-wrap -m-2">
+            <div className="p-2 w-1/2">
+              <div className="relative">
+                <label
+                  htmlFor="name"
+                  className="leading-7 text-sm text-gray-600"
+                >
+                  Имя
+                </label>
+                <input
+                  value={name}
+                  type="text"
+                  id="name"
+                  name="name"
+                  onChange={handleChange}
+                  className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                />
+              </div>
+            </div>
+            <div className="p-2 w-1/2">
+              <div className="relative">
+                <label
+                  htmlFor="email"
+                  className="leading-7 text-sm text-gray-600"
+                >
+                  Электронная почта
+                </label>
+                <input
+                  value={email}
+                  type="email"
+                  id="email"
+                  name="email"
+                  onChange={handleChange}
+                  className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out"
+                />
+              </div>
+            </div>
+            <div className="p-2 w-full">
+              <div className="relative">
+                <label
+                  htmlFor="message"
+                  className="leading-7 text-sm text-gray-600"
+                >
+                  Сообщение
+                </label>
+                <textarea
+                  value={message}
+                  id="message"
+                  name="message"
+                  onChange={handleChange}
+                  className="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"
+                />
+              </div>
+            </div>
+            <div className="p-2 w-full flex justify-center">
+              <Button onClick={handleSubmit}>
+                {loading ? "Отправка..." : "Отправить"}
+              </Button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
 
 export default function ContactsPage() {
   return (
@@ -127,7 +281,7 @@ export default function ContactsPage() {
           src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2393.9171224462784!2d26.026471415711562!3d53.12963329862263!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46d8cfe1a9c1c715%3A0x2844f8b8b22c6888!2sUlitsa%20Smolenskaya%2028%2C%20Baranavi%C4%8Dy%2C%20Belarus!5e0!3m2!1sen!2sus!4v1653587038964!5m2!1sen!2sus"
         />
       </motion.div>
-
+      <ContactUsSection />
       <motion.section
         initial={{
           opacity: 0,
