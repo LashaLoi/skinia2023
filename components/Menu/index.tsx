@@ -43,6 +43,10 @@ const items = [
     path: "/register",
   },
   {
+    text: "Расписание",
+    path: "/program",
+  },
+  {
     text: "Спикеры",
     path: "/speakers",
   },

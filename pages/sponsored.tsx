@@ -22,13 +22,14 @@ export default function RegisteredPage() {
             transition={{
               duration: 0.6,
             }}
-            className="text-5xl font-extrabold leading-tight tracking-tight text-purple-200"
+            className="text-5xl font-extrabold leading-tight tracking-tight text-purple-200 sm:text-start text-center"
           >
-            Спасибо что стали спонсором!
+            Спасибо, что стали спонсором!
           </motion.div>
           <div className="max-w-[700px] py-8 text-lg text-center">
             <div className="mt-4 mb-4">
               Мы скоро с вами свяжемся!
+              <br />
               <span className="text-pink-400"> +375 (29) 206-11-32 Анна</span>
             </div>
           </div>
