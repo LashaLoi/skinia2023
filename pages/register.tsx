@@ -1,7 +1,7 @@
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
-import router from "next/router";
+import router, { useRouter } from "next/router";
 import { useForm, SubmitHandler } from "react-hook-form";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { Button } from "../components/Button";
 
@@ -17,6 +17,12 @@ type Inputs = {
 };
 
 export default function RegisterPage() {
+  const router = useRouter();
+
+  useEffect(() => {
+    router.push("/");
+  }, [router]);
+
   const { register, handleSubmit } = useForm<Inputs>();
   const supabase = createClientComponentClient();
 

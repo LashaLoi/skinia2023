@@ -2,10 +2,17 @@ import Link from "next/link";
 import { Confetti } from "../components/Confetti";
 
 import { motion } from "framer-motion";
-import { PageWrapper } from "../components/PageWrapper";
 import { Button } from "../components/Button";
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 
 export default function RegisteredPage() {
+  const router = useRouter();
+
+  useEffect(() => {
+    router.push("/");
+  }, [router]);
+
   return (
     <>
       <Confetti />

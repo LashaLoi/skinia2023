@@ -38,10 +38,10 @@ const items = [
     text: "Главная",
     path: "/",
   },
-  {
-    text: "Регистрация",
-    path: "/register",
-  },
+  // {
+  //   text: "Регистрация",
+  //   path: "/register",
+  // },
   {
     text: "Расписание",
     path: "/program",

@@ -34,12 +34,12 @@ export const Header = () => {
 
       <div className="flex gap-8 items-center">
         <Menu />
-        <Link
+        {/* <Link
           href="/register"
           className="items-center hidden ml-auto space-x-8 lg:flex"
         >
           <Button>Регистрация</Button>
-        </Link>
+        </Link> */}
       </div>
     </div>
   );

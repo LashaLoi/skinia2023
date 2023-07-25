@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 import { Button } from "../components/Button";
 
-export default function RegisteredPage() {
+export default function SponsoredPage() {
   return (
     <div className="lg:mt-0 z-20 flex flex-col items-center justify-between">
       <div className="hero min-h-screen bg-local md:bg-fixed bg-cover bg-[url(/111.jpg)]">
@@ -38,7 +38,7 @@ export default function RegisteredPage() {
               <Button>На главную</Button>
             </Link>
 
-            <Link href="/register">Регистрация</Link>
+            {/* <Link href="/register">Регистрация</Link> */}
           </div>
         </div>
       </div>

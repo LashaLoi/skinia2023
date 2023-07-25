@@ -43,9 +43,9 @@ export default function Home() {
               <p className="text-white mt-2 text-sm font-bold">Матфея 4:10</p>
             </div>
 
-            <Link href="/register">
+            {/* <Link href="/register">
               <Button>Регистрация </Button>
-            </Link>
+            </Link> */}
           </div>
         </div>
       </div>
